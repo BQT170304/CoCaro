@@ -1,4 +1,5 @@
 #include "sdl_init.h"
+#include "game_func.h"
 
 void init(SDL_Window* &window, SDL_Renderer* &renderer, int screenW, int screenH, const char* windowTitle) {
     if (SDL_Init(SDL_INIT_EVERYTHING)==0 && TTF_Init()==0) {
@@ -7,6 +8,10 @@ void init(SDL_Window* &window, SDL_Renderer* &renderer, int screenW, int screenH
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         if (renderer == nullptr) cout << "Error: Create Renderer\n";
         SDL_RenderSetLogicalSize(renderer, screenW, screenH);
+        if( Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0 ) {
+            cout << "Can't not initialize Mixer! SDL_mixer Error\n";
+            exit(1);
+        }
     }
     else {
         cout << "Can't initialize window\n";
@@ -18,6 +23,7 @@ void quit(SDL_Window* window, SDL_Renderer* renderer, SDL_Texture *texture) {
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_DestroyTexture(texture);
+	Mix_CloseAudio();
 	SDL_Quit();
 }
 

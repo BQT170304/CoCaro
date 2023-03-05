@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 using namespace std;
 
 const SDL_Color MENU_COLOR = {255, 255, 200};

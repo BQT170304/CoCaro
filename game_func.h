@@ -27,6 +27,7 @@ using namespace std;
 #define MENU 1
 #define EXIT 2
 const string WINDOW_TITLE = "Tic Tac Toe 2023";
+
 struct Game {
     int board[3][3];
     int player;
@@ -39,7 +40,7 @@ struct Game {
     SDL_SetTextureAlphaMod( mTexture, alpha );
 */
 
-int start_menu(SDL_Renderer* renderer);
+int start_menu(SDL_Renderer* renderer, Game &game);
 
 int game_menu(SDL_Renderer* renderer);
 

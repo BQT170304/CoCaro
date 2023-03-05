@@ -6,7 +6,7 @@ bool check_select (int xm, int ym, const Text &t) {
     return false;
 }
 
-int start_menu(SDL_Renderer* renderer) {
+int start_menu(SDL_Renderer* renderer, Game &game) {
     setColor(renderer, MENU_COLOR);
     SDL_RenderClear(renderer);
     TTF_Font *title_font = TTF_OpenFont("font/Branda-yolq.ttf", 90);
@@ -27,8 +27,10 @@ int start_menu(SDL_Renderer* renderer) {
             if (e.type == SDL_MOUSEBUTTONDOWN) {
                 int xm = e.button.x, ym = e.button.y;
                 for (int i=0;i<3;i++) {
-                    if (check_select(xm, ym, choices[i]))
+                    if (check_select(xm, ym, choices[i])) {
+                        if (i != EXIT) new_game(renderer, game);
                         return i;
+                    }
                 }
             } else if (e.type == SDL_QUIT)
                 return EXIT;
@@ -179,7 +181,8 @@ int game_state (SDL_Renderer* renderer, Game &game) {
         tie_state(renderer, state_font);
     SDL_Delay(3000);
     int choice = game_menu(renderer);
-    if (choice == 0) reset_game(renderer, game);
+    if (choice == PLAY_AGAIN) reset_game(renderer, game);
+    else if (choice == MENU) choice = start_menu(renderer, game);
     return choice;
     //SDL_RenderPresent(renderer);
 }

@@ -30,16 +30,18 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c++17" />
-			<Add directory="F:/SDL2-2.26.3/x86_64-w64-mingw32/include/SDL2" />
-			<Add directory="F:/SDL2_image-2.6.3/x86_64-w64-mingw32/include/SDL2" />
-			<Add directory="F:/SDL2_ttf-2.20.2/x86_64-w64-mingw32/include/SDL2" />
+			<Add option="-std=gnu++17" />
+			<Add directory="F:/SDL Library/SDL2-2.26.3/x86_64-w64-mingw32/include/SDL2" />
+			<Add directory="F:/SDL Library/SDL2_image-2.6.3/x86_64-w64-mingw32/include/SDL2" />
+			<Add directory="F:/SDL Library/SDL2_ttf-2.20.2/x86_64-w64-mingw32/include/SDL2" />
+			<Add directory="F:/SDL Library/SDL2_mixer-2.6.3/x86_64-w64-mingw32/include/SDL2" />
 		</Compiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf" />
-			<Add directory="F:/SDL2-2.26.3/x86_64-w64-mingw32/lib" />
-			<Add directory="F:/SDL2_image-2.6.3/x86_64-w64-mingw32/lib" />
-			<Add directory="F:/SDL2_ttf-2.20.2/x86_64-w64-mingw32/lib" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer" />
+			<Add directory="F:/SDL Library/SDL2-2.26.3/x86_64-w64-mingw32/lib" />
+			<Add directory="F:/SDL Library/SDL2_image-2.6.3/x86_64-w64-mingw32/lib" />
+			<Add directory="F:/SDL Library/SDL2_ttf-2.20.2/x86_64-w64-mingw32/lib" />
+			<Add directory="F:/SDL Library/SDL2_mixer-2.6.3/x86_64-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="game_func.cpp" />
 		<Unit filename="game_func.h" />
