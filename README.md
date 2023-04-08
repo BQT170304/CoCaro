@@ -19,7 +19,7 @@
 2. Mở Command Line(Terminal), chuyển đến thư mục chứa repository, dùng lệnh: **cd + path**. <br>Ví dụ: chuyển đến thư mục *F:\LTNC\Clone*
 [![Change directory](https://i.postimg.cc/28jbCBhY/Screenshot-2023-04-08-102529.png)](https://postimg.cc/5jGN3ysK)
 
-3. Gõ lệnh git clone rồi dán link repository sao chép ở bước 1.
+3. Gõ lệnh **git clone** rồi dán link repository sao chép ở bước 1.
 [![Clone repository](https://i.postimg.cc/W1Xxxxjj/Screenshot-2023-04-08-103135.png)](https://postimg.cc/TK5kD7pH)
 
 4. Vào thư mục chứa repository, mở file có đuôi .cbp (project file của CodeBlocks).
