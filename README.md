@@ -1,4 +1,4 @@
-# -----------------------> Tic Tac Toe <-------------------------
+# ----------------------> Tic Tac Toe <-------------------------
 
 
 
@@ -16,7 +16,7 @@
 1. Sao chép link repository trong phần clone.
 [![Copy_repo_link.png](https://i.postimg.cc/90jkybmD/Screenshot-2023-04-08-095942.png)](https://postimg.cc/HcB3gQ7m)
 
-2. Mở Command Line(Terminal), chuyển đến thư mục chứa repository, dùng lệnh: cd + path.
+2. Mở Command Line(Terminal), chuyển đến thư mục chứa repository, dùng lệnh: cd + path.\\
 Ví dụ: chuyển đến thư mục F:\LTNC\Clone
 [![Screenshot-2023-04-08-102529.png](https://i.postimg.cc/28jbCBhY/Screenshot-2023-04-08-102529.png)](https://postimg.cc/5jGN3ysK)
 
@@ -31,9 +31,10 @@ Ví dụ: chuyển đến thư mục F:\LTNC\Clone
 
 
 
-## Môi trường và thư viện
-1. Project chạy trên IDE CodeBlocks.
-2. Thư viện cần thiết:
+## Môi trường
+- Project chạy trên IDE CodeBlocks (20.03).
+- Link download: <https://sourceforge.net/projects/codeblocks/>
+## Thư viện liên kết:
 - SDL2
 - SDL2_image
 - SDL2_ttf
