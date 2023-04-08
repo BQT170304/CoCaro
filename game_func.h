@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include "sdl_init.h"
 #include "text_obj.h"
+
 using namespace std;
 #define SCREEN_WIDTH 600
 #define SCREEN_HEIGHT 600
@@ -40,6 +41,10 @@ struct Game {
     SDL_SetTextureAlphaMod( mTexture, alpha );
 */
 
+bool check_select (int xm, int ym, int x, int y, int w, int h);
+
+bool check_select (int xm, int ym, const Text &t);
+
 int start_menu(SDL_Renderer* renderer, Game &game);
 
 int game_menu(SDL_Renderer* renderer);
@@ -50,21 +55,25 @@ void reset_game(SDL_Renderer *renderer, Game &game);
 
 void load_background(SDL_Renderer* renderer);
 
+void load_start_background(SDL_Renderer* renderer);
+
 void draw_board(SDL_Renderer *renderer);
 
-void click_on_cell(Game &game, SDL_Renderer *renderer, SDL_Texture *texture, int row, int col);
+void click_on_cell(Game &game, SDL_Renderer *renderer, int row, int col);
 
 void switch_player (Game &game);
 
-void draw_cells(SDL_Renderer *renderer, SDL_Texture *texture, int board[3][3]);
+int empty_cells(Game &game);
 
-void draw_X(SDL_Renderer *renderer, SDL_Texture *texture, int x, int y, int w, int h);
+void draw_cells(SDL_Renderer *renderer, int board[3][3]);
 
-void draw_O(SDL_Renderer *renderer, SDL_Texture *texture, int x, int y, int w, int h);
+void draw_X(SDL_Renderer *renderer, int x, int y, int w, int h);
+
+void draw_O(SDL_Renderer *renderer, int x, int y, int w, int h);
 
 int check_win(int board[3][3]);
 
-int game_state (SDL_Renderer* renderer, Game &game);
+int game_state (SDL_Renderer* renderer, Game &game, int mode);
 
 void X_win_state (SDL_Renderer* renderer, TTF_Font* font);
 

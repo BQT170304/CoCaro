@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1677853693 source:f:\ltnc\sdl2_codeblocks\tictactoe\game_func.cpp
+1679408770 source:f:\ltnc\sdl2_codeblocks\tictactoe\game_func.cpp
 	"game_func.h"
+	"one_player.h"
 
-1677937319 f:\ltnc\sdl2_codeblocks\tictactoe\game_func.h
+1678893866 f:\ltnc\sdl2_codeblocks\tictactoe\game_func.h
 	<bits/stdc++.h>
 	<SDL.h>
 	"sdl_init.h"
@@ -397,8 +398,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1677852116 f:\ltnc\sdl2_codeblocks\tictactoe\sdl_init.h
+1678805162 f:\ltnc\sdl2_codeblocks\tictactoe\sdl_init.h
 	<bits/stdc++.h>
+	<cstdlib>
+	<ctime>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -430,17 +433,27 @@
 	<SDL_ttf.h>
 	"sdl_init.h"
 
-1677984427 source:f:\ltnc\sdl2_codeblocks\tictactoe\main.cpp
+1679406242 source:f:\ltnc\sdl2_codeblocks\tictactoe\main.cpp
 	<bits/stdc++.h>
+	<cstdlib>
+	<ctime>
 	<SDL.h>
 	"sdl_init.h"
 	"text_obj.h"
 	"game_func.h"
+	"one_player.h"
 
-1677984406 source:f:\ltnc\sdl2_codeblocks\tictactoe\sdl_init.cpp
+1678199905 source:f:\ltnc\sdl2_codeblocks\tictactoe\sdl_init.cpp
 	"sdl_init.h"
 	"game_func.h"
 
 1676813103 source:f:\ltnc\sdl2_codeblocks\tictactoe\text_obj.cpp
 	"text_obj.h"
+
+1679408565 source:f:\ltnc\sdl2_codeblocks\tictactoe\one_player.cpp
+	"one_player.h"
+
+1679408565 f:\ltnc\sdl2_codeblocks\tictactoe\one_player.h
+	"sdl_init.h"
+	"game_func.h"
 

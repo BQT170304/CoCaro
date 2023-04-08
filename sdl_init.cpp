@@ -19,10 +19,9 @@ void init(SDL_Window* &window, SDL_Renderer* &renderer, int screenW, int screenH
     }
 }
 
-void quit(SDL_Window* window, SDL_Renderer* renderer, SDL_Texture *texture) {
+void quit(SDL_Window* window, SDL_Renderer* renderer) {
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
-	SDL_DestroyTexture(texture);
 	Mix_CloseAudio();
 	SDL_Quit();
 }

@@ -46,6 +46,8 @@
 		<Unit filename="game_func.cpp" />
 		<Unit filename="game_func.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="one_player.cpp" />
+		<Unit filename="one_player.h" />
 		<Unit filename="sdl_init.cpp" />
 		<Unit filename="sdl_init.h" />
 		<Unit filename="text_obj.cpp" />
