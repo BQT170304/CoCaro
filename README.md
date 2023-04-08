@@ -14,27 +14,27 @@
 ## Cài đặt
 
 1. Sao chép link repository trong phần clone.
-[![Copy_repo_link.png](https://i.postimg.cc/90jkybmD/Screenshot-2023-04-08-095942.png)](https://postimg.cc/HcB3gQ7m)
+[![Copy repository link](https://i.postimg.cc/90jkybmD/Screenshot-2023-04-08-095942.png)](https://postimg.cc/HcB3gQ7m)
 
-2. Mở Command Line(Terminal), chuyển đến thư mục chứa repository, dùng lệnh: cd + path.\\
-Ví dụ: chuyển đến thư mục F:\LTNC\Clone
-[![Screenshot-2023-04-08-102529.png](https://i.postimg.cc/28jbCBhY/Screenshot-2023-04-08-102529.png)](https://postimg.cc/5jGN3ysK)
+2. Mở Command Line(Terminal), chuyển đến thư mục chứa repository, dùng lệnh: **cd + path**. <br>Ví dụ: chuyển đến thư mục *F:\LTNC\Clone*
+[![Change directory](https://i.postimg.cc/28jbCBhY/Screenshot-2023-04-08-102529.png)](https://postimg.cc/5jGN3ysK)
 
 3. Gõ lệnh git clone rồi dán link repository sao chép ở bước 1.
-[![Screenshot-2023-04-08-103135.png](https://i.postimg.cc/W1Xxxxjj/Screenshot-2023-04-08-103135.png)](https://postimg.cc/TK5kD7pH)
+[![Clone repository](https://i.postimg.cc/W1Xxxxjj/Screenshot-2023-04-08-103135.png)](https://postimg.cc/TK5kD7pH)
 
 4. Vào thư mục chứa repository, mở file có đuôi .cbp (project file của CodeBlocks).
-[![Screenshot-2023-04-08-103822.png](https://i.postimg.cc/Bn742jjx/Screenshot-2023-04-08-103822.png)](https://postimg.cc/3kGsTJCR)
+[![Open project file](https://i.postimg.cc/Bn742jjx/Screenshot-2023-04-08-103822.png)](https://postimg.cc/3kGsTJCR)
 
-5. Build chương trình và chạy (F9 hoặc Ctrl F9 + Ctrl F10).
+5. Build chương trình và chạy <br>
+Phím tắt: **F9 (Build and Run)** hoặc **Ctrl+F9 (Build)** + **Ctrl+F10 (Run)**.
 
 
 
 
 ## Môi trường
-- Project chạy trên IDE CodeBlocks (20.03).
+- Project chạy trên IDE **CodeBlocks (20.03)**.
 - Link download: <https://sourceforge.net/projects/codeblocks/>
-## Thư viện liên kết:
+## Thư viện liên kết
 - SDL2
 - SDL2_image
 - SDL2_ttf
