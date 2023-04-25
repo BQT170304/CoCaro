@@ -11,7 +11,7 @@
 - Nếu có 5 dấu (X/O) xếp thành đường ngang hoặc đường dọc hoặc đường chéo thì người chơi (X/O) sẽ chiến thắng. 
 - Nếu đã đi hết bàn cờ mà không có người chiến thắng thì kết quả là hòa.
 
-## Cách chơi:
+## Cách chơi
 - Click chuột vào ô muốn thực hiện nước đi.
 - Khi đang trong trận, nhấn phím "**R**" để reset bàn cờ (replay).
 - Nhấn phím "**Esc**" (hoặc chọn "**Exit**") để thoát khỏi trò chơi.
