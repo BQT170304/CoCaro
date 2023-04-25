@@ -7,9 +7,10 @@
 #include "text_obj.h"
 
 using namespace std;
+#define N 12
 #define SCREEN_WIDTH 600
 #define SCREEN_HEIGHT 600
-#define CELLWIDTH 200
+#define CELLWIDTH 50
 #define MENU_WIDTH 540
 #define MENU_HEIGHT 540
 // define players
@@ -30,9 +31,10 @@ using namespace std;
 const string WINDOW_TITLE = "Tic Tac Toe 2023";
 
 struct Game {
-    int board[3][3];
+    int board[N][N];
     int player;
     int state;
+    pair<int,int> cur_move;
 };
 
 /*  Set blending function
@@ -63,15 +65,15 @@ void click_on_cell(Game &game, SDL_Renderer *renderer, int row, int col);
 
 void switch_player (Game &game);
 
-int empty_cells(Game &game);
+int empty_cells(int board[N][N]);
 
-void draw_cells(SDL_Renderer *renderer, int board[3][3]);
+void draw_cells(SDL_Renderer *renderer, int board[N][N]);
 
 void draw_X(SDL_Renderer *renderer, int x, int y, int w, int h);
 
 void draw_O(SDL_Renderer *renderer, int x, int y, int w, int h);
 
-int check_win(int board[3][3]);
+int check_win(int board[N][N], pair<int,int> cur_move);
 
 int game_state (SDL_Renderer* renderer, Game &game, int mode);
 

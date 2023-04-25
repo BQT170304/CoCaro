@@ -78,8 +78,8 @@ int game_menu(SDL_Renderer* renderer) {
 }
 
 void new_game(SDL_Renderer *renderer, Game &game) {
-    for (int i=0;i<3;i++) {
-        for (int j=0;j<3;j++) game.board[i][j]=EMPTY;
+    for (int i=0;i<N;i++) {
+        for (int j=0;j<N;j++) game.board[i][j]=EMPTY;
     }
     game.player = X;
     game.state = RUNNING;
@@ -98,6 +98,7 @@ void click_on_cell(Game &game, SDL_Renderer *renderer, int row, int col) {
         if (game.board[row][col] == EMPTY) {
             game.board[row][col] = game.player;
             draw_cells(renderer, game.board);
+            game.cur_move = {row, col};
             switch_player(game);
         }
     }
@@ -108,11 +109,11 @@ void switch_player (Game &game) {
     else game.player = X;
 }
 
-int empty_cells(Game &game) {
+int empty_cells(int board[N][N]) {
     int cnt = 0;
-    for (int i=0;i<3;i++)
-        for (int j=0;j<3;j++)
-            if (game.board[i][j]==EMPTY) cnt++;
+    for (int i=0;i<N;i++)
+        for (int j=0;j<N;j++)
+            if (board[i][j]==EMPTY) cnt++;
     return cnt;
 }
 
@@ -136,17 +137,17 @@ void load_start_background(SDL_Renderer* renderer) {
 
 void draw_board(SDL_Renderer *renderer) {
     setColor(renderer, GRID_COLOR);
-    for (int i=1;i<3;i++) {
-        for (int j=-2;j<=2;j++) {
+    for (int i=1;i<N;i++) {
+        for (int j=-1;j<1;j++) {
             SDL_RenderDrawLine(renderer, i*CELLWIDTH+j, 0, i*CELLWIDTH+j, SCREEN_HEIGHT);
             SDL_RenderDrawLine(renderer, 0, i*CELLWIDTH+j, SCREEN_HEIGHT, i*CELLWIDTH+j);
         }
     }
 }
 
-void draw_cells(SDL_Renderer *renderer, int board[3][3]) {
-    for (int i=0;i<3;i++) {
-        for (int j=0;j<3;j++) {
+void draw_cells(SDL_Renderer *renderer, int board[N][N]) {
+    for (int i=0;i<N;i++) {
+        for (int j=0;j<N;j++) {
             switch (board[i][j]) {
                 case X:
                     draw_X(renderer, i*CELLWIDTH, j*CELLWIDTH, CELLWIDTH, CELLWIDTH);
@@ -176,22 +177,64 @@ void draw_O(SDL_Renderer *renderer, int x, int y, int w, int h) {
     SDL_DestroyTexture(texture);
 }
 
-int check_win(int board[3][3]) {
-    for (int i=0;i<3;i++) {
-        if (board[i][0]>0 && (board[i][0]==board[i][1]) && (board[i][0]==board[i][2]))
-            return board[i][0];
-        if (board[0][i]>0 && (board[0][i]==board[1][i]) && (board[0][i]==board[2][i]))
-            return board[0][i];
+int check_win(int board[N][N], pair<int,int> cur_move) {
+    //Ngang
+    int cnt = 1;
+    for (int i=cur_move.second-1;i>=0;i--) {
+        if (board[cur_move.first][i]==board[cur_move.first][cur_move.second])
+            cnt++;
+        else break;
     }
-    if (board[0][0]>0 && (board[0][0]==board[1][1]) && (board[0][0]==board[2][2]))
-        return board[0][0];
-    if (board[0][2]>0 && (board[0][2]==board[1][1]) && (board[0][2]==board[2][0]))
-        return board[0][2];
-    for (int i=0;i<3;i++) {
-        for (int j=0;j<3;j++) {
-            if (board[i][j] == 0) return RUNNING;
-        }
+    for (int i=cur_move.second+1;i<N;i++) {
+        if (board[cur_move.first][i]==board[cur_move.first][cur_move.second])
+            cnt++;
+        else break;
     }
+    if (cnt==5) return board[cur_move.first][cur_move.second];
+
+    //Doc
+    cnt = 1;
+    for (int i=cur_move.first-1;i>=0;i--) {
+        if (board[i][cur_move.second]==board[cur_move.first][cur_move.second])
+            cnt++;
+        else break;
+    }
+    for (int i=cur_move.first+1;i<N;i++) {
+        if (board[i][cur_move.second]==board[cur_move.first][cur_move.second])
+            cnt++;
+        else break;
+    }
+    if (cnt==5) return board[cur_move.first][cur_move.second];
+
+    // Cheo chinh
+    cnt = 1;
+    for (int i=cur_move.second-1;i>=0;i--) {
+        if (board[cur_move.first+(i-cur_move.second)][i]==board[cur_move.first][cur_move.second])
+            cnt++;
+        else break;
+    }
+    for (int i=cur_move.second+1;i<N;i++) {
+        if (board[cur_move.first+(i-cur_move.second)][i]==board[cur_move.first][cur_move.second])
+            cnt++;
+        else break;
+    }
+    if (cnt==5) return board[cur_move.first][cur_move.second];
+
+    // Cheo phu
+    cnt = 1;
+    for (int i=cur_move.second-1;i>=0;i--) {
+        if (board[cur_move.first-(i-cur_move.second)][i]==board[cur_move.first][cur_move.second])
+            cnt++;
+        else break;
+    }
+    for (int i=cur_move.second+1;i<N;i++) {
+        if (board[cur_move.first-(i-cur_move.second)][i]==board[cur_move.first][cur_move.second])
+            cnt++;
+        else break;
+    }
+    if (cnt==5) return board[cur_move.first][cur_move.second];
+
+    if (empty_cells(board)) return RUNNING;
     return TIE;
 }
 
@@ -208,7 +251,7 @@ int game_state (SDL_Renderer* renderer, Game &game, int mode) {
         O_win_state(renderer, state_font);
     else if (game.state == TIE)
         tie_state(renderer, tie_font);
-    SDL_Delay(3000);
+    SDL_Delay(1500);
     int choice = game_menu(renderer);
     if (choice == PLAY_AGAIN) {
         reset_game(renderer, game);
