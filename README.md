@@ -1,15 +1,20 @@
-# ----------------------> Tic Tac Toe <-------------------------
+# ----------------------> CỜ CARO <-------------------------
 
 
 
 
 ## Tổng quan
-- Game Caro 3x3(Tic Tac Toe) đơn giản với 2 chế độ chơi (người/máy).
-- Cách chơi: Click chuột vào ô để đánh nước muốn đi.
+- Game Caro đơn giản với 2 chế độ chơi (người/máy).
+
 ## Luật chơi
 - 2 người chơi, người đi trước là X, người đi sau là O, 2 người chơi X và O đánh luân phiên nhau. 
-- Nếu có 3 dấu (X/O) xếp thành đường ngang hoặc đường dọc hoặc đường chéo thì người chơi (X/O) sẽ chiến thắng. 
-- Nếu đã đi hết 9 ô mà không có người chiến thắng thì kết quả là hòa.
+- Nếu có 5 dấu (X/O) xếp thành đường ngang hoặc đường dọc hoặc đường chéo thì người chơi (X/O) sẽ chiến thắng. 
+- Nếu đã đi hết bàn cờ mà không có người chiến thắng thì kết quả là hòa.
+
+## Cách chơi:
+- Click chuột vào ô muốn thực hiện nước đi.
+- Khi đang trong trận, nhấn phím "**R**" để reset bàn cờ (replay).
+- Nhấn phím "**Esc**" (hoặc chọn "**Exit**") để thoát khỏi trò chơi.
 
 ## Cài đặt
 
